@@ -1,4 +1,4 @@
-import Lead from "../models/Lead";
+import Lead from "../models/Lead.js";
 
 export const createLead = async (req, res) => {
     try {
@@ -51,7 +51,7 @@ export const getLead = async (req, res) => {
     try {
         const lead = await Lead.findById(req.params.id).populate("customer");
         if (!lead) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: "Lead not found"
             });
         }
@@ -76,7 +76,7 @@ export const updateLead = async (req, res) => {
             }
         ).populate("customer");
         if (!lead) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: "Lead not found"
             });
         }
@@ -94,7 +94,7 @@ export const deleteLead = async (req, res) => {
     try {
         const lead = await Lead.findByIdAndDelete(req.params.id);
         if (!lead) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: "Lead not found"
             });
         }

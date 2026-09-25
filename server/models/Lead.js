@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const leadSchema = new mongoose.Schema({
     customer: {
-        type: mongoose.Schema.types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer',
         required: true
     },
@@ -41,7 +41,7 @@ const leadSchema = new mongoose.Schema({
         default : "NEW"
     },
     followUpDate: {
-        type: date,
+        type: Date,
     },
     notes: {
         type: String,
