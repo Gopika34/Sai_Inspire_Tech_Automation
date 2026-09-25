@@ -89,8 +89,9 @@ export const deleteCustomer = async (req, res) => {
                 message: "Customer not found!",
             });
         }
-
-        res.status(200).json(customer);
+        res.status(200).json({
+            message: "Customer deleted successfully",
+        });
     }
     catch (err) {
         res.status(500).json({

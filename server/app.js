@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     res.json({
-        message: "Business Automation API is running 🚀",
+        message: "Business Automation API is running",
     });
 });
 
