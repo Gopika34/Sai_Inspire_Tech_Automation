@@ -7,7 +7,7 @@ import {
     deleteLead,
 } from "../controllers/leadController.js";
 import validate from "../middleware/validate.js";
-import {leadSchema} from "../middleware/validate.js";
+import leadSchema from "../validators/leadValidator.js";
 
 const router= express.Router();
 

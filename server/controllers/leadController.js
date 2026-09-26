@@ -24,10 +24,7 @@ export const createLead = async (req, res) => {
         res.status(201).json(populatedLead);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to create lead",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -40,10 +37,7 @@ export const getLeads = async (req, res) => {
         res.status(200).json(leads);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to fetch leads",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -58,10 +52,7 @@ export const getLead = async (req, res) => {
         res.status(200).json(lead);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to fetch lead",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -83,10 +74,7 @@ export const updateLead = async (req, res) => {
         res.status(200).json(lead);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to update lead",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -103,9 +91,6 @@ export const deleteLead = async (req, res) => {
         });
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to delete lead",
-            error: err.message,
-        });
+        next(err);
     }
 }

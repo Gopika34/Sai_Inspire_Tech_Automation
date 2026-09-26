@@ -14,10 +14,7 @@ export const createCustomer = async (req, res) => {
         res.status(201).json(customer);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to create customer",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -28,10 +25,7 @@ export const getCustomers = async (req, res) => {
         res.status(200).json(customers);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to fetch customers",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -47,10 +41,7 @@ export const getCustomer = async (req, res) => {
         res.status(200).json(customer);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to fetch customer",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -74,10 +65,7 @@ export const updateCustomer = async (req, res) => {
         res.status(200).json(customer);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to update customer",
-            error: err.message,
-        });
+        next(err);
     }
 }
 
@@ -94,9 +82,6 @@ export const deleteCustomer = async (req, res) => {
         });
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to create customer",
-            error: err.message,
-        });
+        next(err);
     }
 }
