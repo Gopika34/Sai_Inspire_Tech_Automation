@@ -51,4 +51,10 @@ const leadSchema = new mongoose.Schema({
     timestamps:true
 })
 
+leadSchema.index({ customer: 1 });
+
+leadSchema.index({ status: 1 });
+
+leadSchema.index({ followUpDate: 1 });
+
 export default mongoose.model("Lead",leadSchema);
