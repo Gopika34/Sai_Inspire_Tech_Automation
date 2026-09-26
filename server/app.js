@@ -5,6 +5,8 @@ import leadRoutes from "./routes/leadRoutes.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import authRoute from "./routes/authRoutes.js";
+import {protect} from "./middleware/authMiddleware.js";
 
 const app = express();
 
@@ -43,6 +45,8 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api',stdLimiter);
+
+app.use("/api/auth",protect,authLimiter,authRoute);
 
 app.use("/api/customers", customerRoutes);
 app.use("/api/leads", leadRoutes);
