@@ -1,6 +1,6 @@
 import Lead from "../models/Lead.js";
 
-export const createLead = async (req, res) => {
+export const createLead = async (req, res, next) => {
     try {
         const {
             customer,
@@ -28,7 +28,7 @@ export const createLead = async (req, res) => {
     }
 }
 
-export const getLeads = async (req, res) => {
+export const getLeads = async (req, res, next) => {
     try {
         const leads = await Lead.find()
             .populate("customer")
@@ -41,7 +41,7 @@ export const getLeads = async (req, res) => {
     }
 }
 
-export const getLead = async (req, res) => {
+export const getLead = async (req, res, next) => {
     try {
         const lead = await Lead.findById(req.params.id).populate("customer");
         if (!lead) {
@@ -56,7 +56,7 @@ export const getLead = async (req, res) => {
     }
 }
 
-export const updateLead = async (req, res) => {
+export const updateLead = async (req, res, next) => {
     try {
         const lead = await Lead.findByIdAndUpdate(
             req.params.id,
@@ -78,7 +78,7 @@ export const updateLead = async (req, res) => {
     }
 }
 
-export const deleteLead = async (req, res) => {
+export const deleteLead = async (req, res, next) => {
     try {
         const lead = await Lead.findByIdAndDelete(req.params.id);
         if (!lead) {

@@ -15,16 +15,21 @@ const leadSchema = z.object({
         "OTHER",
     ]),
 
-    requirements: z
+    requirement: z
         .string()
         .trim()
         .min(3, "Requirement must be at least 3 characters"),
-    
+
     location: z
         .string()
         .trim()
         .optional(),
-    
+
+    followUpDate: z
+        .coerce
+        .date()
+        .optional(),
+
     notes: z
         .string()
         .trim()
