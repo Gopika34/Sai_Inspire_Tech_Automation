@@ -8,6 +8,7 @@ import {
 } from "../controllers/leadController.js";
 import validate from "../middleware/validate.js";
 import leadSchema from "../validators/leadValidator.js";
+import {authorize} from "../middleware/roleMiddleware.js";
 
 const router= express.Router();
 
@@ -15,6 +16,6 @@ router.get("/",getLeads);
 router.post("/",validate(leadSchema),createLead);
 router.get("/:id",getLead);
 router.patch("/:id",validate(leadSchema.partial()),updateLead);
-router.delete("/:id",deleteLead);
+router.delete("/:id", authorize("ADMIN"),deleteLead);
 
 export default router;

@@ -46,10 +46,10 @@ app.get("/", (req, res) => {
 
 app.use('/api',stdLimiter);
 
-app.use("/api/auth",protect,authLimiter,authRoute);
+app.use("/api/auth",authLimiter,authRoute);
 
-app.use("/api/customers", customerRoutes);
-app.use("/api/leads", leadRoutes);
+app.use("/api/customers",protect ,customerRoutes);
+app.use("/api/leads",protect,leadRoutes);
 
 app.use(errorHandler);
 

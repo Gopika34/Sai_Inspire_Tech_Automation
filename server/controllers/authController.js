@@ -10,7 +10,7 @@ const generateToken = (user)=>{
         },
         process.env.JWT_SECRET,
         {
-            expireIn: "7d",
+            expiresIn: "7d",
         }
     );
 };
@@ -24,7 +24,7 @@ export const register = async (req,res,next) => {
             message: "User already exist",
         });
 
-        const hashedPassword = bcrypt.hash(password,10);
+        const hashedPassword = await bcrypt.hash(password,10);
 
         const user = await User.create({
             name,
